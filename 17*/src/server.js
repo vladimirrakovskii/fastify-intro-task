@@ -24,7 +24,11 @@ export default async () => {
   await app.register(flash);
 
   // BEGIN (write your solution here)
-
+  app.decorateReply('render', function (template, data = {}) {
+    const flashData = this.flash();
+    const combinedData = { ...data, flash: flashData };
+    return this.view(template, combinedData);
+  });
   // END
 
   app.get("/", (req, res) => {
