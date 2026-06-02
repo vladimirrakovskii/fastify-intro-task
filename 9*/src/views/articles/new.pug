@@ -1,0 +1,15 @@
+extends ../layout/page.pug
+
+block content
+    form(action="/articles" method="post")
+        div
+            label Название
+                input(type="text" name="title" value=title)
+            if errors.title
+                div= errors.title
+        div
+            label Текст
+                textarea(type="text" name="text")= text
+            if errors.text
+                div= errors.text
+        input(type="submit" value="Создать")
