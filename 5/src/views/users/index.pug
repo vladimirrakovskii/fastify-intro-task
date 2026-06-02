@@ -1,0 +1,19 @@
+doctype html
+html
+    head
+        title Users list
+    body
+        if users.length === 0
+            p Пока нет ни одного пользователя
+        else
+            table
+                thead
+                    tr
+                        th ID
+                        th Имя пользователя
+                        th Электронная почта
+                tbody
+                    each user in users
+                        td= user.id
+                        td= user.username
+                        td= user.email
