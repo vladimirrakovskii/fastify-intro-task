@@ -1,0 +1,14 @@
+extends ../layout/page.pug
+
+block content
+    form(action="/sessions" method="post")
+        if error
+            div= error
+        div
+            label Имя пользователя
+                input(type="text" name="username")
+        div
+            label Пароль
+                input(type="password" name="password")
+        div
+            input(type="submit" value="Войти")
