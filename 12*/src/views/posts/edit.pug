@@ -1,0 +1,18 @@
+extends ../layout/page.pug
+
+block content
+    h1.header= 'Редактирование статьи'
+        form(action=`/posts/${post.id}`, method='post')
+            div
+                label.form-label Название:
+                    input.form-control(type='text', name='title', value=post.title)
+                    if errors && errors.title
+                        .text-danger= errors.title
+            div
+                label.form-label Текст:
+                    textarea.form-control(name='body')= post.body
+                    if errors && errors.body
+                        .text-danger= errors.body
+            div
+                input.btn.btn-primary(type='submit', value='Обновить')
+                a.btn.btn-secondary(href=`/posts/${post.id}`) Отмена
