@@ -31,7 +31,7 @@ export default (app) => {
     users.push(user);
 
     // BEGIN (write your solution here)
-
+    res.redirect(app.reverse("user", {id: user.id}));
     // END
   });
 
