@@ -1,0 +1,17 @@
+extends ../layout/page.pug
+
+block content
+    h1 Список постов
+    if posts.length > 0
+        ul
+            each post in posts
+                li
+                    a(href=`/posts/${post.id}`)= post.title
+    else
+        p Постов нет
+    div
+        if hasPrevious
+            a(href=`/posts?page=${previousPage}`) Назад
+        span  Страница #{currentPage} из #{totalPages}
+        if hasNext
+            a(href=`/posts?page=${nextPage}`) Вперед
