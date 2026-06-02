@@ -1,0 +1,19 @@
+extends ../layout/page.pug
+
+block content
+    form(action="/users" method="get")
+        input(type="search" required name="term" value=term)
+        input(type="submit" value="Искать")
+    if usersTerm.length > 0
+        table
+            thead
+                tr
+                    th ID
+                    th Имя пользователя
+                    th Электронная почта
+            tbody
+                each user in usersTerm
+                    tr
+                        td= user.id
+                        td= user.username
+                        td= user.email
