@@ -1,0 +1,17 @@
+extends ../layout/page.pug
+
+block content
+    form(action="/users" method="post")
+        div
+            label Имя:
+                input(type="text" name="username")
+        div
+            label Email:
+                input(type="email" name="email" required="required")
+        div
+            label Пароль:
+                input(type="password" name="password" required="required")
+        div
+            label Подтверждение пароля:
+                input(type="password" name="passwordConfirm" required="required")
+        input(type="submit" value="Зарегистрировать")
