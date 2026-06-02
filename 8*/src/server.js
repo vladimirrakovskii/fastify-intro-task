@@ -27,7 +27,20 @@ export default async () => {
   });
 
   // BEGIN (write your solution here)
+  app.get("/users/new", (req, res) => {
+    res.view("src/views/users/new");
+  });
 
+  app.post("/users", (req, res) => {
+    const user = {
+      id: generateId(),
+      username: req.body.username.trim(),
+      email: req.body.email.trim().toLowerCase(),
+      password: crypto(req.body.password),
+    };
+    users.push(user);
+    res.redirect("/users");
+  })
   // END
 
   app.get("/users/:id", (req, res) => {
