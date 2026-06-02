@@ -1,0 +1,16 @@
+extends ../layout/page.pug
+
+block content
+    table
+        thead
+            tr
+                th ID
+                th Имя пользователя
+                th Электронная почта
+        tbody
+            each user in users
+                tr
+                    td= user.id
+                    td
+                        a(href=route("user", { id: user.id }))= user.userName
+                    td= user.email
